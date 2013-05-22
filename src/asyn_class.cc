@@ -81,7 +81,7 @@ Handle<Value> Asyn::do_asyn_thread(const Arguments& args) {
 	job_ptr->count = &count;
 
 	//regist async callback
-	uv_async_init(uv_default_loop(), &job_ptr->main_async, asyn_callback);
+	uv_async_init(uv_default_loop(), &job_ptr->main_async, asyn_thread_callback);
 	
 	//create thread
 	uv_thread_create(&job_ptr->worker_thread, asyn_thread_work, job_ptr);
@@ -265,7 +265,37 @@ void Asyn::asyn_callback(uv_async_t* handle, int status){
 
 }
 
+void Asyn::asyn_thread_callback(uv_async_t* handle, int status){
 
+	HandleScope scope;
+
+	Job* job_ptr= (Job *) handle->data;
+
+	Local<Value> argv[2];
+	argv[0] = Local<Value>::New(Null());
+	argv[1] = Number::New(job_ptr->fibo_res);
+
+	
+	job_ptr->js_obj->CallAsFunction(Object::New(), 2, argv);
+	
+	job_ptr->js_obj.Dispose();
+
+	uv_rwlock_wrlock(&numlock);
+
+	(*job_ptr->count)++;
+
+	uv_rwlock_wrunlock(&numlock);
+	
+	//std::cout<<job_ptr<<std::endl;
+
+	uv_close((uv_handle_t*) &job_ptr->main_async, uv_close_func);
+
+
+    scope.Close(Undefined());
+
+	
+
+}
 
 
 //thread callback do fibo

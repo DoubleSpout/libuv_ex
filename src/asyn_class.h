@@ -21,6 +21,7 @@ class Asyn {
   static void thread_callback(void* arg);//sync_thread used
   static void asyn_callback(uv_async_t* handle, int status);//asyn used
   static void asyn_thread_work(void* arg);//asyn_thread used
+  static void asyn_thread_callback(uv_async_t* handle, int status);//asyn_thread used
   static void asyn_pool_callback(uv_work_t* req);//asyn_pool used
   static void asyn_after_pool_callback(uv_work_t *req, int status);//asyn_pool used
   static void uv_close_func(uv_handle_t* handle);//close the uv and delete the pointer
