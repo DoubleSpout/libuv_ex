@@ -86,7 +86,7 @@ Handle<Value> Asyn::do_asyn_thread(const Arguments& args) {
 	//create thread
 	uv_thread_create(&job_ptr->worker_thread, asyn_thread_work, job_ptr);
 	//using the thread to do the fibo job
-	uv_thread_join(&job_ptr->worker_thread);
+	//uv_thread_join(&job_ptr->worker_thread);
 
  }
 
