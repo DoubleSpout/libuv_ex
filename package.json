@@ -1,0 +1,38 @@
+{
+  "author": {
+    "name": "doublespout",
+    "email": "snoopyxdy@163.com",
+    "url": "http://snoopyxdy.blog.163.com"
+  },
+  "name": "libuv_ex",
+  "description": "libuv example",
+  "keywords": [
+    "node",
+    "libuv",
+    "c++",
+    "example"
+  ],
+  "version": "0.1.0",
+  "url": "https://github.com/DoubleSpout/libuv_ex",
+  "homepage": "https://github.com/DoubleSpout/libuv_ex",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DoubleSpout/libuv_ex.git"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.8.5"
+  },
+  "scripts": {
+    "install": "node-gyp rebuild",
+    "tset":"node ./test/main_test.js"
+  },
+  "gypfile": true,
+  "readmeFilename": "readme.md",
+  "_id": "ccap@0.3.4",
+  "_from": "ccap@",
+  "dist": {
+    "shasum": "1e7b80e2cb24d97f494f5b723b6793e50ae06e83"
+  },
+  "_resolved": "https://registry.npmjs.org/ccap/-/ccap-0.3.4.tgz"
+}

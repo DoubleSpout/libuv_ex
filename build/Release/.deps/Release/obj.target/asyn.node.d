@@ -1,0 +1,1 @@
+cmd_Release/obj.target/asyn.node := flock ./Release/linker.lock g++ -shared -pthread -rdynamic -m32  -Wl,-soname=asyn.node -o Release/obj.target/asyn.node -Wl,--start-group Release/obj.target/asyn/src/asyn.o Release/obj.target/asyn/src/asyn_class.o Release/obj.target/asyn/src/job_class.o -Wl,--end-group 
