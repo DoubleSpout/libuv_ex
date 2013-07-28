@@ -179,8 +179,6 @@ Handle<Value> Asyn::do_sync_thread(const Arguments& args) {
 
   int times = args[0]->Int32Value();
 
-  int times2 = times;
-
   //do multi thread Synchronous
   while(times--){
 	  //create thread
@@ -363,13 +361,6 @@ void Asyn::uv_close_func(uv_handle_t* handle){
 	delete job_ptr;
 	
 };
-
-
-std::string Asyn::toCString(Handle<Value> strp){
-      String::Utf8Value utf8_value(strp->ToString());//conver to utf8-value
-      std::string str = *utf8_value;
-      return str;
-}
 
 
 Asyn::Asyn(){};
