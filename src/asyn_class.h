@@ -17,7 +17,6 @@ class Asyn {
 
   
  private:
-  static std::string toCString(Handle<Value> strp);
   static void thread_callback(void* arg);//sync_thread used
   static void asyn_callback(uv_async_t* handle, int status);//asyn used
   static void asyn_thread_work(void* arg);//asyn_thread used
